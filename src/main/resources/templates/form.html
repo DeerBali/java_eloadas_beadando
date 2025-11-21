@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html lang="hu">
+<head>
+    <title>SOAP Árfolyam lekérés</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="/assets/css/noscript.css" /></noscript>
+</head>
+
+<body class="is-preload">
+<div id="wrapper">
+
+    <!-- Header -->
+    <header id="header" class="alt">
+        <span class="logo"><img src="/images/logo.svg" alt="" /></span>
+        <h1>SOAP Árfolyam lekérés</h1>
+        <p>Devizaárfolyamok lekérése MNB SOAP szolgáltatással</p>
+    </header>
+
+    <!-- NAVBAR -->
+    <nav id="nav">
+        <ul>
+            <li><a href="/" >Főoldal</a></li>
+            <li><a href="/exercise" class="active">SOAP Árfolyam</a></li>
+            <li><a href="/forex-account">Forex Számla</a></li>
+            <li><a href="/forex-price">Aktuális ár</a></li>
+            <li><a href="/forex-hist">Historikus adatok</a></li>
+            <li><a href="/forex-open">Pozíció nyitás</a></li>
+            <li><a href="/forex-positions">Pozíciók</a></li>
+            <li><a href="/forex-close">Pozíció zárás</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main -->
+    <div id="main">
+        <section class="main">
+            <header class="major">
+                <h2>Devizaárfolyam lekérése</h2>
+                <p>Válassz devizát és add meg a dátum intervallumot</p>
+            </header>
+
+            <form th:action="@{/exercise}" th:object="${param}" method="post" class="box">
+
+                <div class="row gtr-uniform">
+
+                    <div class="col-12">
+                        <label>Devizanem</label>
+                        <select th:field="*{currency}">
+                            <option value="EUR">EUR</option>
+                            <option value="USD">USD</option>
+                            <option value="GBP">GBP</option>
+                            <option value="JPY">JPY</option>
+                        </select>
+                    </div>
+
+                    <div class="col-6 col-12-small">
+                        <label>Kezdő dátum</label>
+                        <input type="date" th:field="*{startDate}">
+                    </div>
+
+                    <div class="col-6 col-12-small">
+                        <label>Vég dátum</label>
+                        <input type="date" th:field="*{endDate}">
+                    </div>
+
+                    <div class="col-12">
+                        <ul class="actions special">
+                            <li><input type="submit" value="Lekérés" class="primary" /></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </form>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <p class="copyright">
+            &copy; Stellar Template • Integráció: Balázs
+        </p>
+    </footer>
+
+</div>
+
+<script src="/assets/js/jquery.min.js"></script>
+<script src="/assets/js/browser.min.js"></script>
+<script src="/assets/js/breakpoints.min.js"></script>
+<script src="/assets/js/util.js"></script>
+<script src="/assets/js/main.js"></script>
+
+</body>
+</html>

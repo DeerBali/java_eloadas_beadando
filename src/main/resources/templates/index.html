@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="hu" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout :: head"></head>
+
+<body>
+
+<div id="wrapper">
+
+    <div th:fragment="content">
+
+        <!-- Főoldali bemutató szekció -->
+        <section id="intro" class="main">
+            <header class="major">
+                <h2>Deviza & Forex Alkalmazás</h2>
+            </header>
+
+            <p>
+                Ez a webalkalmazás SOAP (MNB) és REST (OANDA Forex) API-k integrációjára épül.
+                Lehetővé teszi az árfolyamok lekérését, historikus adatok megjelenítését,
+                valamint a valós idejű kereskedéshez szükséges funkciók használatát
+                (pozíció nyitás, zárás, számlainformációk).
+            </p>
+
+            <ul class="actions special">
+                <li><a th:href="@{/exercise}" class="button primary">SOAP Árfolyamok</a></li>
+                <li><a th:href="@{/forex-account}" class="button">Forex Számlaadatok</a></li>
+            </ul>
+        </section>
+
+    </div>
+
+</div>
+
+</body>
+</html>

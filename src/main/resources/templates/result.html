@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<html lang="hu">
+<head>
+    <title>SOAP Eredmények</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="/assets/css/noscript.css" /></noscript>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body class="is-preload">
+<div id="wrapper">
+
+    <!-- Header -->
+    <header id="header" class="alt">
+        <span class="logo"><img src="/images/logo.svg" alt="" /></span>
+        <h1>SOAP Árfolyam eredmény</h1>
+        <p>Eredmények és grafikon</p>
+    </header>
+
+    <!-- NAVBAR -->
+    <nav id="nav">
+        <ul>
+            <li><a href="/" >Főoldal</a></li>
+            <li><a href="/exercise" class="active">SOAP Árfolyam</a></li>
+            <li><a href="/forex-account">Forex Számla</a></li>
+            <li><a href="/forex-price">Aktuális ár</a></li>
+            <li><a href="/forex-hist">Historikus adatok</a></li>
+            <li><a href="/forex-open">Pozíció nyitás</a></li>
+            <li><a href="/forex-positions">Pozíciók</a></li>
+            <li><a href="/forex-close">Pozíció zárás</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main -->
+    <div id="main">
+        <section class="main">
+            <header class="major">
+                <h2>Árfolyam grafikon</h2>
+            </header>
+
+            <!-- GRAFIKON -->
+            <canvas id="chartRates" height="120"></canvas>
+
+            <script th:inline="javascript">
+                /*<![CDATA[*/
+                const labels = /*[[${labels}]]*/ [];
+                const values = /*[[${data}]]*/ [];
+                const ccy    = /*[[${currency}]]*/ '';
+
+                new Chart(document.getElementById('chartRates'), {
+                    type: 'line',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Árfolyam (' + ccy + ')',
+                            data: values,
+                            tension: 0.2,
+                            borderWidth: 2
+                        }]
+                    }
+                });
+                /*]]>*/
+            </script>
+
+            <p th:text="'Prices: ' + ${sendOut}"></p>
+
+            <ul class="actions">
+                <li><a href="/exercise" class="button">Vissza</a></li>
+            </ul>
+
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <p class="copyright">
+            &copy; Stellar Template • Integráció: Balázs
+        </p>
+    </footer>
+
+</div>
+
+<script src="/assets/js/jquery.min.js"></script>
+<script src="/assets/js/browser.min.js"></script>
+<script src="/assets/js/breakpoints.min.js"></script>
+<script src="/assets/js/util.js"></script>
+<script src="/assets/js/main.js"></script>
+
+</body>
+</html>
