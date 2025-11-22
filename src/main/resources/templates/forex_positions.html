@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="hu" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Forex – Nyitott pozíciók</title>
+
+    <link rel="stylesheet" th:href="@{/assets/css/main.css}">
+    <noscript><link rel="stylesheet" th:href="@{/assets/css/noscript.css}" /></noscript>
+</head>
+
+<body class="is-preload">
+<div id="wrapper">
+
+    <!-- Header -->
+    <header id="header" class="alt">
+        <h1>Nyitott Forex pozíciók</h1>
+        <p>Az Oanda számla jelenlegi nyitott trade-jei</p>
+    </header>
+
+    <!-- Navbar -->
+    <nav id="nav">
+        <ul>
+            <li><a href="/">Főoldal</a></li>
+            <li><a href="/exercise">SOAP Árfolyam</a></li>
+            <li><a href="/forex-account">Forex-Számla</a></li>
+            <li><a href="/actual_prices">Aktuális ár</a></li>
+            <li><a href="/hist_prices">Historikus adatok</a></li>
+            <li><a href="/open_position">Pozíció nyitás</a></li>
+            <li><a href="/forex-positions" class="active">Pozíciók</a></li>
+            <li><a href="/close_position">Pozíció zárás</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main -->
+    <div id="main">
+        <section class="main">
+            <header class="major">
+                <h2>Aktív pozíciók listája</h2>
+            </header>
+
+            <div class="table-wrapper" th:if="${trades.size() > 0}">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Trade ID</th>
+                        <th>Instrument</th>
+                        <th>Units</th>
+                        <th>Nyitási ár</th>
+                        <th>Aktuális PL</th>
+                        <th>Nyitási idő</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="t : ${trades}">
+                        <td th:text="${t.id}"></td>
+                        <td th:text="${t.instrument}"></td>
+                        <td th:text="${t.currentUnits}"></td>
+                        <td th:text="${t.price}"></td>
+                        <td th:text="${t.unrealizedPL}"></td>
+                        <td th:text="${t.openTime}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p th:if="${trades.size() == 0}">
+                Jelenleg nincs egyetlen nyitott pozíció sem.
+            </p>
+
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <p class="copyright">&copy; Stellar Template •  Integráció: Szarvas Balázs & Falusi Tamás </p>
+    </footer>
+
+</div>
+
+<script th:src="@{/assets/js/jquery.min.js}"></script>
+<script th:src="@{/assets/js/browser.min.js}"></script>
+<script th:src="@{/assets/js/breakpoints.min.js}"></script>
+<script th:src="@{/assets/js/util.js}"></script>
+<script th:src="@{/assets/js/main.js}"></script>
+
+</body>
+</html>

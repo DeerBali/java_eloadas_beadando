@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="hu" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <title>Pozíció lezárva</title>
+
+    <link rel="stylesheet" th:href="@{/assets/css/main.css}">
+    <noscript><link rel="stylesheet" th:href="@{/assets/css/noscript.css}" /></noscript>
+</head>
+
+<body class="is-preload">
+<div id="wrapper">
+
+    <!-- Header -->
+    <header id="header" class="alt">
+        <h1>Pozíció lezárva</h1>
+        <p>A trade sikeresen lezárásra került</p>
+    </header>
+
+    <!-- Nav -->
+    <nav id="nav">
+        <ul>
+            <li><a href="/">Főoldal</a></li>
+            <li><a href="/exercise">SOAP Árfolyam</a></li>
+            <li><a href="/forex-account">Forex-Számla</a></li>
+            <li><a href="/actual_prices">Aktuális ár</a></li>
+            <li><a href="/hist_prices">Historikus adatok</a></li>
+            <li><a href="/open_position">Pozíció nyitás</a></li>
+            <li><a href="/forex-positions">Pozíciók</a></li>
+            <li><a href="/close_position" class="active">Pozíció zárás</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main -->
+    <div id="main">
+        <section class="main">
+            <header class="major">
+                <h2>Lezárt pozíció adatai</h2>
+            </header>
+
+            <p th:text="'Lezárt trade ID: ' + ${tradeId}"></p>
+
+            <ul class="actions">
+                <li><a th:href="@{/close_position}" class="button">Újabb pozíció zárása</a></li>
+            </ul>
+        </section>
+    </div>
+
+    <footer id="footer">
+        <p class="copyright">&copy; Stellar template  Integráció: Szarvas Balázs & Falusi Tamás </p>
+    </footer>
+
+</div>
+
+<!-- JAVÍTOTT SCRIPT BLOKK -->
+<script th:src="@{/assets/js/jquery.min.js}"></script>
+<script th:src="@{/assets/js/browser.min.js}"></script>
+<script th:src="@{/assets/js/breakpoints.min.js}"></script>
+<script th:src="@{/assets/js/util.js}"></script>
+<script th:src="@{/assets/js/main.js}"></script>
+
+</body>
+</html>

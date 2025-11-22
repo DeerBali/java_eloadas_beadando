@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="hu" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pozíció megnyitva</title>
+
+    <link rel="stylesheet" th:href="@{/assets/css/main.css}">
+    <noscript><link rel="stylesheet" th:href="@{/assets/css/noscript.css}"></noscript>
+</head>
+
+<body class="is-preload">
+<div id="wrapper">
+
+    <header id="header" class="alt">
+        <h1>Pozíció sikeresen megnyitva</h1>
+    </header>
+
+    <nav id="nav">
+        <ul>
+            <li><a href="/">Főoldal</a></li>
+            <li><a href="/exercise">SOAP Árfolyam</a></li>
+            <li><a href="/forex-account">Forex-Számla</a></li>
+            <li><a href="/actual_prices">Aktuális ár</a></li>
+            <li><a href="/hist_prices">Historikus adatok</a></li>
+            <li><a href="/open_position" class="active">Pozíció nyitás</a></li>
+            <li><a href="/forex-positions">Pozíciók</a></li>
+            <li><a href="/close_position">Pozíció zárás</a></li>
+        </ul>
+    </nav>
+
+    <div id="main">
+        <section class="main">
+            <header class="major"><h2>Pozíció adatai</h2></header>
+
+            <p><strong>Instrumentum:</strong> <span th:text="${instr}"></span></p>
+            <p><strong>Mennyiség:</strong> <span th:text="${units}"></span></p>
+            <p><strong>Pozíció ID:</strong> <span th:text="${id}"></span></p>
+
+            <ul class="actions special">
+                <li><a th:href="@{/open_position}" class="button">Új pozíció nyitása</a></li>
+            </ul>
+        </section>
+    </div>
+
+    <footer id="footer">
+        <p class="copyright">&copy; Stellar template Integráció: Szarvas Balázs & Falusi Tamás </p>
+    </footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="hu" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hiba történt</title>
+    <link rel="stylesheet" th:href="@{/assets/css/main.css}">
+</head>
+
+<body>
+<div id="wrapper">
+    <header id="header" class="alt">
+        <h1>Hiba történt</h1>
+        <p>A művelet végrehajtása közben hiba lépett fel</p>
+    </header>
+
+    <div id="main">
+        <section class="main">
+            <h2>Hibaüzenet</h2>
+            <p th:text="${error}">Ismeretlen hiba</p>
+
+            <ul class="actions">
+                <li><a th:href="@{/}" class="button">Vissza a főoldalra</a></li>
+                <li><a th:href="@{/close_position}" class="button primary">Újra próbálom</a></li>
+            </ul>
+        </section>
+    </div>
+
+    <footer id="footer">
+        <p class="copyright">&copy;  Integráció: Szarvas Balázs & Falusi Tamás </p>
+    </footer>
+</div>
+</body>
+</html>

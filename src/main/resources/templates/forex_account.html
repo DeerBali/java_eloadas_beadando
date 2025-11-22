@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="hu" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Forex – Számlainformációk</title>
+
+    <link rel="stylesheet" th:href="@{/assets/css/main.css}">
+    <noscript><link rel="stylesheet" th:href="@{/assets/css/noscript.css}" /></noscript>
+</head>
+
+<body class="is-preload">
+<div id="wrapper">
+
+    <!-- HEADER -->
+    <header id="header" class="alt">
+        <h1>Forex számlainformációk</h1>
+        <p>Oanda demo/live account összefoglaló</p>
+    </header>
+
+    <!-- NAVBAR -->
+    <nav id="nav">
+        <ul>
+            <li><a href="/">Főoldal</a></li>
+            <li><a href="/exercise">SOAP Árfolyam</a></li>
+            <li><a href="/forex-account" class="active">Forex-Számla</a></li>
+            <li><a href="/actual_prices">Aktuális ár</a></li>
+            <li><a href="/hist_prices">Historikus adatok</a></li>
+            <li><a href="/open_position">Pozíció nyitás</a></li>
+            <li><a href="/forex-positions">Pozíciók</a></li>
+            <li><a href="/close_position">Pozíció zárás</a></li>
+        </ul>
+    </nav>
+
+    <!-- MAIN -->
+    <div id="main">
+        <section class="main">
+
+            <header class="major">
+                <h2>Számla összesített adatai</h2>
+            </header>
+
+            <div class="table-wrapper">
+                <table>
+                    <tbody>
+                    <tr>
+                        <th>Számla ID</th>
+                        <td th:text="${acc.id}"></td>
+                    </tr>
+                    <tr>
+                        <th>Egyenleg (Balance)</th>
+                        <td th:text="${acc.balance}"></td>
+                    </tr>
+                    <tr>
+                        <th>Nettó eszközérték (NAV)</th>
+                        <td th:text="${acc.NAV}"></td>
+                    </tr>
+                    <tr>
+                        <th>Elérhető margin</th>
+                        <td th:text="${acc.marginAvailable}"></td>
+                    </tr>
+                    <tr>
+                        <th>Felhasznált margin</th>
+                        <td th:text="${acc.marginUsed}"></td>
+                    </tr>
+                    <tr>
+                        <th>Nyitott pozíciók száma</th>
+                        <td th:text="${acc.openTradeCount}"></td>
+                    </tr>
+                    <tr>
+                        <th>Nyereség / Veszteség (realized PL)</th>
+                        <td th:text="${acc.pl}"></td>
+                    </tr>
+                    <tr>
+                        <th>Nem realizált P/L</th>
+                        <td th:text="${acc.unrealizedPL}"></td>
+                    </tr>
+                    <tr>
+                        <th>Max. kivehető összeg</th>
+                        <td th:text="${acc.withdrawalLimit}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+    </div>
+
+    <!-- FOOTER -->
+    <footer id="footer">
+        <p class="copyright">&copy; Stellar Template – Integráció: Szarvas Balázs & Falusi Tamás </p>
+    </footer>
+
+</div>
+
+<script th:src="@{/assets/js/jquery.min.js}"></script>
+<script th:src="@{/assets/js/browser.min.js}"></script>
+<script th:src="@{/assets/js/breakpoints.min.js}"></script>
+<script th:src="@{/assets/js/util.js}"></script>
+<script th:src="@{/assets/js/main.js}"></script>
+
+</body>
+</html>

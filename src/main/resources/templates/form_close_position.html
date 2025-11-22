@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="hu" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <title>Pozíció zárás</title>
+
+    <link rel="stylesheet" th:href="@{/assets/css/main.css}">
+    <noscript><link rel="stylesheet" th:href="@{/assets/css/noscript.css}" /></noscript>
+</head>
+
+<body class="is-preload">
+<div id="wrapper">
+
+    <!-- Header -->
+    <header id="header" class="alt">
+        <h1>Pozíció zárása</h1>
+        <p>Forex pozíció lezárása tradeId alapján</p>
+    </header>
+
+
+    <!-- NAVBAR -->
+    <nav id="nav">
+        <ul>
+            <li><a href="/" >Főoldal</a></li>
+            <li><a href="/exercise">SOAP Árfolyam</a></li>
+            <li><a href="/forex-account">Forex-Számla</a></li>
+            <li><a href="/actual_prices">Aktuális ár</a></li>
+            <li><a href="/hist_prices">Historikus adatok</a></li>
+            <li><a href="/open_position">Pozíció nyitás</a></li>
+            <li><a href="/forex-positions">Pozíciók</a></li>
+            <li><a href="/close_position" class="active">Pozíció zárás</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- Main -->
+    <div id="main">
+        <section class="main">
+            <header class="major">
+                <h2>Trade azonosító megadása</h2>
+            </header>
+
+            <form th:action="@{/close_position}" th:object="${param}" method="post" class="box">
+
+                <div class="row gtr-uniform">
+                    <div class="col-12">
+                        <label for="tradeId">Trade ID:</label>
+                        <input type="number"
+                               id="tradeId"
+                               th:field="*{tradeId}"
+                               placeholder="Pl. 123"
+                               required />
+                    </div>
+
+                    <div class="col-12">
+                        <ul class="actions special">
+                            <li><input type="submit" value="Pozíció lezárása" class="primary" /></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </form>
+
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <p class="copyright">&copy;  Integráció: Szarvas Balázs & Falusi Tamás </p>
+    </footer>
+
+</div>
+
+<script th:src="@{/assets/js/jquery.min.js}"></script>
+<script th:src="@{/assets/js/browser.min.js}"></script>
+<script th:src="@{/assets/js/breakpoints.min.js}"></script>
+<script th:src="@{/assets/js/util.js}"></script>
+<script th:src="@{/assets/js/main.js}"></script>
+
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+<html lang="hu">
+<head>
+    <title>Aktuális Forex ár – Eredmény</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="/assets/css/noscript.css" /></noscript>
+</head>
+
+<body class="is-preload">
+<div id="wrapper">
+
+    <!-- Header -->
+    <header id="header" class="alt">
+        <span class="logo"><img src="/images/logo.svg" alt="" /></span>
+        <h1>Aktuális Forex ár</h1>
+        <p>Legfrissebb piaci adatok</p>
+    </header>
+
+    <!-- NAVBAR -->
+    <nav id="nav">
+        <ul>
+            <li><a href="/">Főoldal</a></li>
+            <li><a href="/exercise">SOAP Árfolyam</a></li>
+            <li><a href="/forex-account">Forex-Számla</a></li>
+            <li><a href="/actual_prices" class="active">Aktuális ár</a></li>
+            <li><a href="/hist_prices">Historikus adatok</a></li>
+            <li><a href="/open_position">Pozíció nyitás</a></li>
+            <li><a href="/forex-positions">Pozíciók</a></li>
+            <li><a href="/close_position">Pozíció zárás</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main -->
+    <div id="main">
+        <section class="main">
+
+            <header class="major">
+                <h2>Eredmények</h2>
+            </header>
+
+            <div class="box">
+
+                <p><strong>Instrument:</strong>
+                    <span th:text="${instr}"></span>
+                </p>
+
+                <p><strong>Időpont:</strong>
+                    <span th:text="${time}"></span>
+                </p>
+
+                <p><strong>Kereskedhető:</strong>
+                    <span th:text="${tradeable}"></span>
+                </p>
+
+                <!-- BID PRICES -->
+                <h3>Bid árak</h3>
+                <table class="alt">
+                    <thead>
+                    <tr>
+                        <th>Ár</th>
+                        <th>Likviditás</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="b : ${bids}">
+                        <td th:text="${b.price}"></td>
+                        <td th:text="${b.liquidity}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <!-- ASK PRICES -->
+                <h3>Ask árak</h3>
+                <table class="alt">
+                    <thead>
+                    <tr>
+                        <th>Ár</th>
+                        <th>Likviditás</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="a : ${asks}">
+                        <td th:text="${a.price}"></td>
+                        <td th:text="${a.liquidity}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <p><strong>Closeout Bid:</strong> <span th:text="${closeoutBid}"></span></p>
+                <p><strong>Closeout Ask:</strong> <span th:text="${closeoutAsk}"></span></p>
+
+            </div>
+
+            <ul class="actions">
+                <li><a href="/actual_prices" class="button">Új lekérés</a></li>
+            </ul>
+
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <p class="copyright">&copy; Stellar Template •  Integráció: Szarvas Balázs & Falusi Tamás </p>
+    </footer>
+
+</div>
+
+<script src="/assets/js/jquery.min.js"></script>
+<script src="/assets/js/browser.min.js"></script>
+<script src="/assets/js/breakpoints.min.js"></script>
+<script src="/assets/js/util.js"></script>
+<script src="/assets/js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html lang="hu">
+<head>
+    <title>Aktuális Forex ár – Lekérés</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="/assets/css/noscript.css" /></noscript>
+</head>
+
+<body class="is-preload">
+<div id="wrapper">
+
+    <!-- Header -->
+    <header id="header" class="alt">
+        <span class="logo"><img src="/images/logo.svg" alt="" /></span>
+        <h1>Aktuális Forex ár</h1>
+        <p>Pillanatnyi devizaár lekérése</p>
+    </header>
+
+    <!-- NAVBAR -->
+    <nav id="nav">
+        <ul>
+            <li><a href="/">Főoldal</a></li>
+            <li><a href="/exercise">SOAP Árfolyam</a></li>
+            <li><a href="/forex-account">Forex-Számla</a></li>
+            <li><a href="/actual_prices" class="active">Aktuális ár</a></li>
+            <li><a href="/hist_prices">Historikus adatok</a></li>
+            <li><a href="/open_position">Pozíció nyitás</a></li>
+            <li><a href="/forex-positions">Pozíciók</a></li>
+            <li><a href="/close_position">Pozíció zárás</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main -->
+    <div id="main">
+        <section class="main">
+
+            <header class="major">
+                <h2>Instrument kiválasztása</h2>
+            </header>
+
+            <form th:action="@{/actual_prices}" th:object="${par}" method="post" class="box">
+                <div class="row gtr-uniform">
+
+                    <div class="col-12">
+                        <label>Instrument</label>
+                        <select th:field="*{instrument}">
+                            <option value="EUR_USD">EUR_USD</option>
+                            <option value="USD_CHF">USD_CHF</option>
+                            <option value="GBP_USD">GBP_USD</option>
+                            <option value="USD_JPY">USD_JPY</option>
+                        </select>
+                    </div>
+
+                    <div class="col-12">
+                        <ul class="actions special">
+                            <li><input type="submit" value="Lekérés" class="primary"></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </form>
+
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <p class="copyright">&copy; Stellar Template •  Integráció: Szarvas Balázs & Falusi Tamás </p>
+    </footer>
+
+</div>
+
+<script src="/assets/js/jquery.min.js"></script>
+<script src="/assets/js/browser.min.js"></script>
+<script src="/assets/js/breakpoints.min.js"></script>
+<script src="/assets/js/util.js"></script>
+<script src="/assets/js/main.js"></script>
+
+</body>
+</html>

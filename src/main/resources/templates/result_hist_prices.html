@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html lang="hu">
+<head>
+    <title>Historikus árak – Eredmény</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="/assets/css/noscript.css" /></noscript>
+</head>
+
+<body class="is-preload">
+<div id="wrapper">
+
+    <!-- Header -->
+    <header id="header" class="alt">
+        <span class="logo"><img src="/images/logo.svg" alt="" /></span>
+        <h1>Historikus Forex árak</h1>
+        <p>Utolsó 10 gyertya lekérdezése</p>
+    </header>
+
+    <!-- NAV -->
+    <nav id="nav">
+        <ul>
+            <li><a href="/">Főoldal</a></li>
+            <li><a href="/exercise">SOAP Árfolyam</a></li>
+            <li><a href="/forex-account">Forex-Számla</a></li>
+            <li><a href="/actual_prices">Aktuális ár</a></li>
+            <li><a href="/hist_prices" class="active">Historikus adatok</a></li>
+            <li><a href="/open_position">Pozíció nyitás</a></li>
+            <li><a href="/forex-positions">Pozíciók</a></li>
+            <li><a href="/close_position">Pozíció zárás</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main -->
+    <div id="main">
+        <section class="main">
+
+            <header class="major">
+                <h2>Eredmények</h2>
+            </header>
+
+            <!-- Kiválasztott paraméterek -->
+            <div class="box">
+                <p><strong>Instrument:</strong> <span th:text="${instr}"></span></p>
+                <p><strong>Granularitás:</strong> <span th:text="${granularity}"></span></p>
+            </div>
+
+            <h3>Historikus gyertyák</h3>
+
+            <!-- Táblázat -->
+            <div class="table-wrapper">
+                <table class="alt">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Dátum</th>
+                        <th>Záróár</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="row,i : ${prices}">
+                        <td th:text="${i.index + 1}"></td>
+                        <td th:text="${row.split(' ')[0]}"></td>
+                        <td th:text="${row.split(' ')[1]}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <ul class="actions special">
+                <li><a href="/hist_prices" class="button primary">Új lekérés</a></li>
+            </ul>
+
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <p class="copyright">
+            &copy; Stellar Template •  Integráció: Szarvas Balázs & Falusi Tamás
+        </p>
+    </footer>
+
+</div>
+
+<script src="/assets/js/jquery.min.js"></script>
+<script src="/assets/js/browser.min.js"></script>
+<script src="/assets/js/breakpoints.min.js"></script>
+<script src="/assets/js/util.js"></script>
+<script src="/assets/js/main.js"></script>
+
+</body>
+</html>
