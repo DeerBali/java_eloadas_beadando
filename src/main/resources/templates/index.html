@@ -1,36 +1,132 @@
-<!DOCTYPE html>
-<html lang="hu" xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE HTML>
+<html lang="hu">
+<head>
+    <title>Deviza & Forex alkalmazás</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="/assets/css/noscript.css" /></noscript>
+</head>
 
-<head th:replace="layout :: head"></head>
-
-<body>
-
+<body class="is-preload">
 <div id="wrapper">
 
-    <div th:fragment="content">
+    <!-- HEADER -->
+    <header id="header" class="alt">
+        <span class="logo">
+            <img src="/images/logo.svg" alt="Logo"/>
+        </span>
+        <h1>Deviza & Forex Webalkalmazás</h1>
+        <p>SOAP (MNB) és OANDA API integráció • Grafikonok, árfolyamok, pozíciókezelés</p>
+    </header>
 
-        <!-- Főoldali bemutató szekció -->
+    <!-- NAVBAR -->
+    <!-- NAVBAR -->
+    <nav id="nav">
+        <ul>
+            <li><a href="/" class="active">Főoldal</a></li>
+            <li><a href="/exercise">SOAP Árfolyam</a></li>
+            <li><a href="/forex-account">Forex-Számla</a></li>
+            <li><a href="/actual_prices">Aktuális ár</a></li>
+            <li><a href="/hist_prices">Historikus adatok</a></li>
+            <li><a href="/open_position">Pozíció nyitás</a></li>
+            <li><a href="/forex-positions">Pozíciók</a></li>
+            <li><a href="/close_position">Pozíció zárás</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- MAIN -->
+    <div id="main">
+
+        <!-- INTRO SECTION -->
         <section id="intro" class="main">
+            <div class="spotlight">
+                <div class="content">
+                    <header class="major">
+                        <h2>Üdvözlünk a Forex & Deviza alkalmazásban!</h2>
+                    </header>
+
+                    <p>
+                        Ez az alkalmazás a magyar MNB SOAP szolgáltatást és az OANDA Forex REST API-t
+                        integrálja egyetlen modern, reszponzív felületen.
+                        Lehetőséged van devizaárfolyamokat lekérni, historikus gyertyákat megjeleníteni,
+                        valamint valós idejű kereskedési műveleteket végrehajtani – mint pozíciók nyitása és zárása.
+                    </p>
+
+                    <ul class="actions">
+                        <li><a href="/exercise" class="button primary">SOAP árfolyam lekérés</a></li>
+                        <li><a href="/actual_prices" class="button">Aktuális Forex árak</a></li>
+                    </ul>
+                </div>
+
+                <span class="image">
+                    <img src="/images/pic01.jpg" alt="Forex"/>
+                </span>
+            </div>
+        </section>
+
+        <!-- FEATURES -->
+        <section class="main special">
             <header class="major">
-                <h2>Deviza & Forex Alkalmazás</h2>
+                <h2>Fő funkciók</h2>
             </header>
 
-            <p>
-                Ez a webalkalmazás SOAP (MNB) és REST (OANDA Forex) API-k integrációjára épül.
-                Lehetővé teszi az árfolyamok lekérését, historikus adatok megjelenítését,
-                valamint a valós idejű kereskedéshez szükséges funkciók használatát
-                (pozíció nyitás, zárás, számlainformációk).
-            </p>
+            <ul class="features">
+                <li>
+                    <span class="icon solid major style2 fa-chart-line"></span>
+                    <h3>SOAP Árak</h3>
+                    <p>MNB devizaárfolyamok lekérése és megjelenítése.</p>
+                </li>
 
-            <ul class="actions special">
-                <li><a th:href="@{/exercise}" class="button primary">SOAP Árfolyamok</a></li>
-                <li><a th:href="@{/forex-account}" class="button">Forex Számlaadatok</a></li>
+                <li>
+                    <span class="icon solid major style3 fa-cogs"></span>
+                    <h3>Aktuális Forex ár</h3>
+                    <p>OANDA valós idejű devizaárfolyam adatok.</p>
+                </li>
+
+                <li>
+                    <span class="icon solid major style1 fa-history"></span>
+                    <h3>Historikus gyertyák</h3>
+                    <p>10 db gyertya (M1, H1, D, W, M) részletes lekérése.</p>
+                </li>
+
+                <li>
+                    <span class="icon solid major style5 fa-arrow-up"></span>
+                    <h3>Pozíció nyitás</h3>
+                    <p>Market Order létrehozása bármely támogatott instrumentumra.</p>
+                </li>
+
+                <li>
+                    <span class="icon solid major style4 fa-list"></span>
+                    <h3>Pozíciók listája</h3>
+                    <p>Nyitott tradek valós idejű listázása.</p>
+                </li>
+
+                <li>
+                    <span class="icon solid major style6 fa-times"></span>
+                    <h3>Pozíció zárás</h3>
+                    <p>Akár egyetlen trade azonnali lezárása.</p>
+                </li>
             </ul>
         </section>
 
     </div>
 
+    <!-- FOOTER -->
+    <footer id="footer">
+        <p class="copyright">
+            &copy; 2025 • Stellar UI •  Integráció: Szarvas Balázs & Falusi Tamás
+        </p>
+    </footer>
+
 </div>
+
+<script src="/assets/js/jquery.min.js"></script>
+<script src="/assets/js/browser.min.js"></script>
+<script src="/assets/js/breakpoints.min.js"></script>
+<script src="/assets/js/util.js"></script>
+<script src="/assets/js/main.js"></script>
 
 </body>
 </html>

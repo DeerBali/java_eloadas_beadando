@@ -59,35 +59,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
 
-            <!-- wsimport (mojo) + jaxws-tools 4.0.2 -->
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>jaxws-maven-plugin</artifactId>
-                <version>2.6.1</version>
-                <dependencies>
-                    <dependency>
-                        <groupId>com.sun.xml.ws</groupId>
-                        <artifactId>jaxws-tools</artifactId>
-                        <version>4.0.2</version>
-                    </dependency>
-                </dependencies>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>wsimport</goal>
-                        </goals>
-                        <configuration>
-                            <wsdlUrls>
-                                <wsdlUrl>http://www.mnb.hu/arfolyamok.asmx?WSDL</wsdlUrl>
-                            </wsdlUrls>
-                            <packageName>soapclient</packageName>
-                            <!-- ha inkább a target alá szeretnéd: hagyd ki ezt a sort -->
-                            <sourceDestDir>src/main/java</sourceDestDir>
-                            <xnocompile>true</xnocompile>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
+
         </plugins>
     </build>
 </project>

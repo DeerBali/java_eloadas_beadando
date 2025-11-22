@@ -1,8 +1,5 @@
-// path: src/main/java/com/example/bank/BankApplication.java
 package com.example.bank;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -22,16 +19,10 @@ import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
 
-/** Miért: a SOAP válasz nyers XML, ezért itt parsoljuk és adjuk a nézetnek. */
-@SpringBootApplication
 @Controller
 public class BankApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(BankApplication.class, args);
-    }
-
-    @GetMapping({"/", "/exercise"})
+    @GetMapping({"/exercise"})
     public String form(Model model) {
         model.addAttribute("param", new MessagePrice());
         return "form";
@@ -44,15 +35,14 @@ public class BankApplication {
         MNBArfolyamServiceSoap service =
                 new MNBArfolyamServiceSoapImpl().getCustomBindingMNBArfolyamServiceSoap();
 
-        // MNB válasz: <MNBExchangeRates><Day date="..."><Rate curr="EUR">414,55</Rate>...
         String xml = service.getExchangeRates(
                 messagePrice.getStartDate(),
                 messagePrice.getEndDate(),
-                messagePrice.getCurrency());
+                messagePrice.getCurrency()
+        );
 
         List<RatePoint> points = parseRates(xml, messagePrice.getCurrency());
 
-        // Chart.js adatok
         List<String> labels = points.stream().map(p -> p.date().toString()).collect(Collectors.toList());
         List<Double> data = points.stream().map(p -> p.value().doubleValue()).collect(Collectors.toList());
 
@@ -66,7 +56,6 @@ public class BankApplication {
         return "result";
     }
 
-    // Biztonságos DOM + XPath; kezeli a curr/currency attribútum változatot is.
     private static List<RatePoint> parseRates(String innerXml, String expectedCurrency) {
         try {
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -111,7 +100,6 @@ public class BankApplication {
         }
     }
 
-    // Egyszerű űrlap-DTO
     public static class MessagePrice {
         private String currency = "EUR";
         private String startDate;
