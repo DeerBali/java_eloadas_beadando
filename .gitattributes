@@ -1,0 +1,2 @@
+Beadando-1.0-SANPSHOT filter=lfs diff=lfs merge=lfs -text
+Beadando-1.0-SNAPSHOT filter=lfs diff=lfs merge=lfs -text
